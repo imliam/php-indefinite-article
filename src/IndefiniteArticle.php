@@ -3349,36 +3349,45 @@ class IndefiniteArticle
         $this->word = $word;
     }
 
+    /**
+     * Get the individual article as a string, for example "a" or "an".
+     */
     public function article(): string
     {
         return $this->find($this->word);
     }
 
-    public function parse()
+    /**
+     * Get the article concatenated with the original
+     * string, for example "an apple" or "a mouse".
+     */
+    public function parse(): string
     {
         return $this->find($this->word) . ' ' . $this->word;
     }
 
-    protected function find($word = null, $obj = null, $article = null)
+    protected function find(string $word = null, array $object = null, string $article = null): string
     {
-        if ($obj === null) {
-            $obj = $this->articles;
-        }
-
-        if ($article === null) {
-            $article = 'a';
-        }
-
-        if ($word === null) {
+        if (is_null($word)) {
             return $article;
+        }
+
+        if (is_null($object)) {
+            $object = $this->articles;
+        }
+
+        if (is_null($article)) {
+            $article = 'a';
         }
 
         $key = mb_substr($word, 0, 1);
 
-        $obj = isset($obj[$key]) ? $obj[$key] : null;
+        $object = isset($object[$key]) ? $object[$key] : null;
 
-        if ($key !== null && $obj !== null) {
-            return $this->find(mb_substr($word, 1), $obj, isset($obj['_']) ? $obj['_'] : $article);
+        if (!is_null($key) && !is_null($object)) {
+            $newArticle = isset($object['_']) ? $object['_'] : $article;
+
+            return $this->find(mb_substr($word, 1), $object, $newArticle);
         }
 
         return $article;
