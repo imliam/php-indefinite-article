@@ -1,9 +1,7 @@
 # PHP Indefinite Articles
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/imliam/php-indefinite-article.svg)](https://packagist.org/packages/imliam/php-indefinite-article)
-[![Build Status](https://img.shields.io/travis/imliam/php-indefinite-article.svg)](https://travis-ci.org/imliam/php-indefinite-article)
 ![Code Quality](https://img.shields.io/scrutinizer/g/imliam/php-indefinite-article.svg)
-![Code Coverage](https://img.shields.io/scrutinizer/coverage/g/imliam/php-indefinite-article.svg)
 [![Total Downloads](https://img.shields.io/packagist/dt/imliam/php-indefinite-article.svg)](https://packagist.org/packages/imliam/php-indefinite-article)
 [![License](https://img.shields.io/github/license/imliam/php-indefinite-article.svg)](LICENSE.md)
 
